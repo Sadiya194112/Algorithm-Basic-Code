@@ -1,0 +1,18 @@
+@Sadiya
+
+#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+ll exp(ll b, ll p, ll m){
+    if(p==0)    return 1;
+    ll ans = exp(b, p/2, m);
+    if(p&1) return (((ans*ans)%m)*b)%m;
+    return ((ans*ans)%m);
+}
+int main(){
+    ll b, p, m;
+    while(cin>>b>>p>>m){
+        cout<<exp(b, p, m)<<"\n";
+    }
+    return 0;
+}
