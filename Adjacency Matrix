@@ -3,7 +3,16 @@ using namespace std;
 int node,edge,i,j;
 int mat[100][100];   // Or int mat[n][n]
 
+//To set all distance as -1
+void dist(){
+    for(i=0; i<100; i++){
+        for(j=0; j<100; j++){
+            mat[i][j]=-1;
+        }
+    }
+}
 int main(){
+    dist();
     scanf("%d%d", &node, &edge);
     for(i=0; i<edge; i++){
         int u,v,cost;
@@ -17,4 +26,5 @@ int main(){
         }
         cout<<endl;
     }
+    return 0;
 }
