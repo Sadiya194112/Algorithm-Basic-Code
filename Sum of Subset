@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int n,m,rem_sum, sum;
+int w[10],x[10];
+void SumOfSub(int s, int k, int r){
+    x[k]=1;
+    if(s+w[k]==m){
+        for(int  i=1; i<=6; i++)    cout<<x[i]<<" ";
+        cout<<endl;
+    }
+    else if(s+w[k]+w[k+1]<=m){
+        SumOfSub(s+w[k], k+1, r-w[k]);      //kth item has taken.
+    }
+    if(((s+r-w[k])>=m) && (s+w[k+1])<=m){
+        x[k]=0;
+        SumOfSub(s, k+1, r-w[k]);
+    }
+}
+int main(){
+    // K is level
+    int k=1;   cin>>n>>m;
+    for(int i=1; i<=n; i++){
+        cin>>w[i];
+        rem_sum+=w[i];
+    }
+    sort(w+1, w+n+1);
+    SumOfSub(sum, k, rem_sum);
+    return 0;
+}
