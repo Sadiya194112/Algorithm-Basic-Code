@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 int n,m,rem_sum, sum;
@@ -5,7 +6,9 @@ int w[10],x[10];
 void SumOfSub(int s, int k, int r){
     x[k]=1;
     if(s+w[k]==m){
-        for(int  i=1; i<=6; i++)    cout<<x[i]<<" ";
+        for(int  i=1; i<=k; i++){
+            if(x[i]==1) cout<<w[i]<<" ";
+        }
         cout<<endl;
     }
     else if(s+w[k]+w[k+1]<=m){
@@ -23,7 +26,7 @@ int main(){
         cin>>w[i];
         rem_sum+=w[i];
     }
-    sort(w+1, w+n+1);
+//    sort(w+1, w+n+1);
     SumOfSub(sum, k, rem_sum);
     return 0;
 }
