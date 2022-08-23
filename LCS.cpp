@@ -42,10 +42,7 @@ int main(){
     gets(s2);
     int res = LCS(s1, s2);
 
-//    for(int i=0; i<=m; ++i){
-//        for(int j=0; j<=n; ++j)  cout<<c[i][j]<<" ";
-//        cout<<endl;
-//    }
+
     cout<<res<<endl;
     print_LCS(b, s1, m, n);
     cout<<endl;
