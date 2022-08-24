@@ -1,0 +1,63 @@
+@ Sadiya
+
+#include<bits/stdc++.h>
+typedef unsigned long long ull;
+const int MAX = 1000001;
+ull a[MAX], BIT[MAX]={0},res;
+int n,Q,k,p,q;
+char ch;
+using namespace std;
+
+void update(int p, int q){
+    while(p<=n){
+        BIT[p] = BIT[p]+q;
+        p = p+(p&(-p));
+    }
+}
+ull query(int x){
+    ull sum=0;
+    while(x>0){
+        sum = sum + BIT[x];
+        x = x - (x&(-x));
+    }
+    return sum;
+}
+int main(){
+    cin>>n>>Q;
+    for(int i=1; i<=n; ++i){
+        cin>>a[i];
+        update(i, a[i]);
+    }
+    while(Q--){
+        cin>>ch>>p>>q;
+        p++;    //As we started from 1 base indexing
+        if(ch=='T'){
+//            cout<<(-q)<<endl;
+            update(p, -q);
+        }
+        else if(ch=='G'){
+            update(p, q);
+        }
+        else{
+            q++;
+            if(p!=1){
+                res = query(q)-query(p-1);
+            }
+            else    res = query(q);
+            cout<<res<<endl;
+        }
+    }
+    return 0;
+}
+
+
+
+Input:                            Output:
+5 5                                     3005
+1000 1002 1003 1004 1005                3008
+S 0 2                                   5014
+G 0 3
+S 0 2
+T 4 3
+S 0 4
+
