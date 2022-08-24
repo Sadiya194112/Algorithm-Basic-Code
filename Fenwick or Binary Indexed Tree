@@ -1,0 +1,38 @@
+@Sadiya
+
+#include<bits/stdc++.h>
+int BIT[1000], a[1000], n;
+using namespace std;
+
+void update(int x, int delta)   //add "delta" at index "x"
+{
+      for(; x <= n; x += x&-x)
+        BIT[x] += delta;
+}
+int query(int x)    //returns the sum of first x elements in given array a[]
+{
+     int sum = 0;
+     for(; x > 0; x -= x&-x)
+        sum += BIT[x];
+     return sum;
+}
+
+int main(){
+     cin>>n;
+     int i;
+     for(i = 1; i <= n; i++){
+           cin>>a[i];      
+           update(i, a[i]);
+     }
+     cout<<"Sum of first 10 elements is = " << query(10)<<endl;
+     int p = query(7);
+     int q = query(2-1);
+     cout<<"Sum of all elements in range 2 to 7 is = "<< p-q <<endl;
+     return 0;
+}
+
+ /*
+ Input:
+ 10
+ 2 1 4 6 -1 5 -32 0 1 3
+ */
