@@ -1,0 +1,63 @@
+# Need Modification
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int w[10],m,n,p[10],fp=INT_MIN,c[10];
+vector<int> x(n),y(n);
+
+int Bound(int cp, int cw, int k){
+    int b,c;
+    b = cp;
+    c = cw;
+    for(int i=k+1; k<=n; i++){
+        if(c+w[i]<=m){
+            c = c+w[i];
+            b = b - p[i];
+        }
+    }
+    return b;
+}
+void BB_Knapsack(int cp, int cw, int k){
+    int fw;
+    if(cw+w[k]<=m){
+        y[k]=1;
+        for(int i=1; i<=k; i++){
+            if(y[k]==1) cout<<p[i]<<" ";
+        }
+        if(k<n){
+            BB_Knapsack(cp+p[k], cw+w[k], k+1);
+        }
+        if((cp+p[k]>fp) &&(k==n)){
+            fp = cp+c[k];
+            fw = cw+w[k];
+            x = y;
+        }
+    }
+    if(Bound(cp,cw,k)>=fp){
+        y[k]=0;
+        if(k<n){
+            BB_Knapsack(cp, cw, k+1);
+        }
+        if((cp>fp)&&(k==n)){
+            fp = cp;
+            fw = cw;
+            x = y;
+        }
+    }
+}
+int main(){
+    cout<<"Enter the number of Items and weight of knapsack: ";
+    cin>>n>>m;
+    for(int i=1; i<=n; i++){
+        cin>>p[i];
+    }
+    for(int i=1; i<=n; i++){
+        cin>>w[i];
+    }
+    sort(p+1, p+n+1);
+    sort(w+1, w+n+1);
+    BB_Knapsack(0,0,1);
+        cout<<endl;
+    return 0;
+}
