@@ -1,4 +1,5 @@
 @Sadiya 
+//Where i=column, j=which queen and k=row
 
 #include<bits/stdc++.h>
 using namespace std;
