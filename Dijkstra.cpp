@@ -1,5 +1,6 @@
 @Sadiya
 
+
 #include<bits/stdc++.h>
 using namespace std;
 const int inf=1e7;
@@ -10,6 +11,7 @@ int main(){
     for(int i=0; i<m; i++) {
         int u,v,w;  cin>>u>>v>>w;
         graph[u].push_back({v,w});
+        graph[v].push_back({u,w});
     }
     int source;     cin>>source;
     dist[source]=0;
@@ -36,3 +38,13 @@ int main(){
     }
     return 0;
 }
+
+/* Input:   4 4
+            1 2 24
+            1 4 20
+            3 1 3
+            4 3 12
+            1   //source
+    Output: 0 24 3 15
+
+*/
