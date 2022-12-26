@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+#define int long long
+#define endl "\n"
+using namespace std;
+signed main(){
+    int n;      cin>>n;
+    vector<int> prime_factors;
+    for(int i=2; i*i<=n; i++){
+        while(n%i==0){
+            prime_factors.push_back(i);
+            n/=i;
+            //Each time at the end of while loop n will be 1
+        }
+        //If n is not 1 after the end of while loop and when n is the prime. That time n is not divisible by i
+        if(n>1){
+            prime_factors.push_back(n);
+        }
+    }
+    for(int p : prime_factors){
+        cout<<p<<" ";
+    }
+    cout<<endl;
+    return 0;
+}
