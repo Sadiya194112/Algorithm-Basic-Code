@@ -1,0 +1,33 @@
+//Priority queue contains the elements in descending(which has highest priority) order.
+
+
+#include<bits/stdc++.h>
+#define int long long
+#define endl "\n"
+using namespace std;
+
+
+signed main(){
+    priority_queue<pair<int,int>> q;
+//    priority_queue<string> q; 
+//    priority_queue<int> q;
+
+    int n; 
+    cout<<"Enter number of Pairs: "; 
+    cin>>n;
+    for(int i=0; i<n; i++){
+        int a,b;
+        cin>>a>>b;
+        q.push({a,b});
+    }
+
+    while(!q.empty()){
+        pair<int,int> x;    //As each contents in this priority queue is a pair
+//        string x;         //If this priority queue contains strings
+//        int x;            //If this priority queue contains integer number
+        x = q.top();
+        cout<<x.first<<" "<<x.second<<endl;
+        q.pop();
+    }
+    return 0;
+}
