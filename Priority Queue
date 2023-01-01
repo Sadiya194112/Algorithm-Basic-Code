@@ -1,5 +1,5 @@
 //Priority queue contains the elements in descending(which has highest priority) order.
-
+//Max heap or max priority queue
 
 #include<bits/stdc++.h>
 #define int long long
