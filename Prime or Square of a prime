@@ -1,0 +1,30 @@
+@Sadiya
+
+// Print -1: if n is a prime or n is square of a prime
+// Otherwise print 3 distinct divisors of n which are smaller than n.
+
+#include<bits/stdc++.h>
+using namespace std;
+void ac(){
+    int i,n,ans;    cin>>n;
+    i=2,ans=1;
+    while(i*i<=n){
+        /* if i is a divisor of n and n isn't square of a prime.
+           Could not be 2,3,5,7,9,25,49,81,...etc.
+        */
+        if(n%i==0 && i!=(n/i)){
+            ans=0;
+            break;
+        }
+        i++;
+    }
+    if(ans)     cout<<"N is prime or square of a prime.\n";
+    else        cout<<1<<" "<<i<<" "<<n/i<<endl;
+}
+signed main(){
+    int tc;     cin>>tc;
+    while(tc--){
+        ac();
+    }
+    return 0;
+}
