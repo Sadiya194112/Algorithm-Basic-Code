@@ -1,0 +1,30 @@
+@Sadiya
+
+//Separate each digit from left to right/
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n,cnt=0,i,r,t;
+    printf("Enter the number:");
+    scanf("%d",&n);
+    t=n;
+    while(t!=0){
+        r = t%10;
+        t = t/10;
+        cnt++;
+    }
+//    cout<<cnt<<endl;
+    int j,digit,x;
+    digit = n;
+    for(j=cnt-1;j>=0;j--){
+        x = pow(10,j);
+        digit=digit/x;
+        n=n%x;
+//        cout<<digit<<" "<<pow(10,j)<<" "<<n<<endl;
+        digit=n;
+    }
+
+}
