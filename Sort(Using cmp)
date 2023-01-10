@@ -1,0 +1,56 @@
+/*
+Sort the vector of in ascending order according to the first
+element. If two pair have the equal first element then sort
+the vector of pair in descending order according to second
+element.
+Or, sort in ascending order according to first element
+and sort in descending order according to second element.
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool cmp(pair<int,int>a, pair<int,int>b){
+    if(a.first!=b.first){
+        if(a.first>b.first) return true;
+        return false;
+    }
+    else{
+        if(a.second<b.second)   return true;
+        return false;
+    }
+}
+signed main(){
+    int n,i,j;  cin>>n;
+    vector<pair<int,int>> a(n);
+    for(i=0; i<n; i++)  cin>>a[i].first>>a[i].second;
+    cout<<endl;
+
+    for(i=0; i<n; i++){
+        for(j=i+1; j<n; j++){
+            if(cmp(a[i],a[j]))   swap(a[i],a[j]);
+        }
+    }
+    for(i=0; i<n; i++)  cout<<a[i].first<<" "<<a[i].second<<endl;
+    cout<<endl;
+    return 0;
+}
+
+/*
+Input:
+6
+4 3
+5 5
+5 3
+25 6
+7 9
+8 5
+
+Output:
+4 3
+5 5   
+5 3
+7 9
+8 5
+25 6
+*/
