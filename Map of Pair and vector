@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+signed main(){
+    map<pair<string,string>, vector<int>>m;
+    int n,i,j;  cin>>n;
+    for(i=0; i<n; i++){
+        string fn,ln;
+        int ct; cin>>fn>>ln>>ct;
+        for(j=0; j<ct; j++){
+            int x;  cin>>x;
+            m[{fn,ln}].push_back(x);
+        }
+    }
+    for(auto &pr : m){
+        auto &full_name = pr.first;
+        auto &lst = pr.second;
+        cout<<full_name.first<<" "<<full_name.second<<endl;
+        cout<<lst.size()<<endl;
+        for(auto &ele:lst){
+            cout<<ele<<" ";
+        }
+        cout<<endl;
+    }
+
+    return 0;
+}
+/*
+3
+a b 4
+1 2 3 4
+c d 2
+1 2
+d f 3
+2 3 4
+
+*/
