@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool cmp(pair<int, int>a, pair<int,int>b){
+    if(a.first!=b.first){
+        return a.first<b.first; //Sort in ascending order according to the first element
+    }
+    return a.second>b.second;   //Sort in descending order according to the second element
+}
+signed main(){
+    int n,i;      cin>>n;
+    vector<pair<int, int>> a(n);
+    for(i=0; i<n; i++){
+        cin>>a[i].first>>a[i].second;
+    }
+    cout<<endl;
+    sort(a.begin(), a.end(), cmp);
+    for(i=0; i<n; i++)  cout<<a[i].first<<" "<<a[i].second<<endl;
+
+    return 0;
+}
+
+/*
+Input:
+5
+6 9
+5 8
+5 3
+7 8
+5 10
+
+Output:
+5 10
+5 8
+5 3
+6 9
+7 8
+*/
