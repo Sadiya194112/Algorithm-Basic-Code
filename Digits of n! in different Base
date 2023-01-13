@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+int fact(int n, int b){
+    double x=0,eps=1e-9;
+    for(int i=1; i<=n; i++){
+        x+=log10(i)/log10(b);
+    }
+    int res = x+1+eps;
+    return res;
+}
+signed main(){
+    cout<<"Enter N and base: \n";
+    int n,b;    cin>>n>>b;
+    cout<<fact(n,b)<<endl;
+    return 0;
+}
