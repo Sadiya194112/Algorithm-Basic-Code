@@ -1,0 +1,36 @@
+@Sadiya
+//Sort in descending order if cgpa is not same and if cgpa is same then sort ascending order according to their name.
+
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+    int id;
+    string name;
+    double cgpa;
+};
+bool cmp(const node &a, const node &b){
+    if(a.cgpa!=b.cgpa)  return a.cgpa>b.cgpa;
+    return a.id<b.id;
+}
+void display(node *a, int n){
+    int i;
+    for(i=0; i<n; i++)  cout<<a[i].name<<setw(15)<<a[i].id<<setw(15)<<a[i].cgpa<<endl;
+}
+signed main(){
+    cout<<"Enter the size of the structure array: ";
+    int n,i;    cin>>n;
+    node a[n];
+    for(i=0; i<n; i++)  cin>>a[i].name>>a[i].id>>a[i].cgpa;
+    cout<<endl;
+    cout<<"Before Sorting: \n";
+    display(a, n);
+
+    sort(a, a+n, cmp);
+
+    cout<<endl;
+    cout<<"After Sorting: \n";
+    display(a, n);
+
+
+    return 0;
+}
