@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+
+signed main(){
+    int n,i;  cin>>n;
+    vector<string> s(n), t(n);
+    map<string, vector<string>>mp;
+    map<string, vector<string>> ::iterator it;
+
+    for(i=0; i<n; i++){
+        cin>>s[i]>>t[i];
+        mp[s[i]].push_back(t[i]);
+    }
+    for(it=mp.begin(); it!=mp.end(); it++){
+        string key = it->first;
+        vector<string> v = it->second;
+        cout<<key<<": ";
+        for(i=0; i<v.size(); i++){
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
+/*
+7
+a b
+b c
+a d
+b e
+a f
+g h
+a i
+*/
