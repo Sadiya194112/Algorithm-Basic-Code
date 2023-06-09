@@ -25,3 +25,14 @@ signed main(){
     }
     return 0;
 }
+/*
+
+See Codeforces Problem: 1839B 
+6
+1 2
+3 4
+1 4
+3 4
+3 5
+2 3
+*/
